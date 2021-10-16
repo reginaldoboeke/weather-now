@@ -1,0 +1,51 @@
+:root {
+  --card-footer-background: rgba(241, 241, 241, 0.5);
+  --app-background: #f1f1f1;
+  --divider: #ebebeb;
+  --box-shadow: rgba(51, 51, 51, 0.1);
+
+  --grey-100: #b4b4b4;
+  --grey-200: #737c84;
+  --blue: #69a3ff;
+  --orange: #ff9632;
+  --red: #ed1946;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  @media (max-width: 1080px) {
+    font-size: 93.75%; // 15px
+  }
+
+  @media (max-width: 720px) {
+    font-size: 87.5%; // 14px
+  }
+}
+
+body {
+  background: var(--app-background);
+  -webkit-font-smoothing: antialiased;
+}
+
+body, input, textarea, button {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: 600;
+}
+
+button {
+  cursor: pointer;
+}
+
+[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
