@@ -1,0 +1,122 @@
+div.card {
+  background: var(--neutral-background);
+  width: 280px;
+  height: fit-content;
+  max-width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 9px var(--box-shadow);
+
+  transition: transform 0.5s;
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+
+    background: var(--neutral-background);
+    border-bottom: 1px solid var(--divider);
+    padding: 1rem 0;
+
+    h1 {
+      color: var(--dark-gray);
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+  }
+
+  div.loading, div.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 206px;
+
+    span {
+      font-weight: 600;
+    }
+
+    button {
+      margin-top: 1rem;
+    }
+  }
+
+  div.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 160px;
+
+    h2 {
+      font-size: 6rem;
+      font-weight: 500;
+    }
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem 0;
+    min-height: 46px;
+
+    background: var(--card-footer-background);
+
+    div.details {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      animation: HeightAnimation 0.5s;
+      overflow: hidden;
+
+      width: 100%;
+      margin-bottom: 0.75rem;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        span {
+          color: var(--light-gray);
+          font-weight: 300;
+          font-size: 0.9rem;
+          margin-bottom: 4px;
+        }
+
+        strong {
+          color: var(--dark-gray);
+          font-weight: 500;
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    small {
+      color: var(--light-gray);
+      font-size: 0.75rem;
+    }
+  }
+}
+
+div.card:hover {
+  transform: scaleY(1.1);
+}
+
+.text-blue { color: var(--blue) }
+.text-orange { color: var(--orange) }
+.text-red { color: var(--red) }
+.loader { width: 60px }
+
+@keyframes HeightAnimation {
+  0% { height: 0 }
+  100% { height: 41px }
+}
