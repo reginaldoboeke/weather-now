@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
 
-import { Header } from './components/Header';
+import { AppHeader } from './components/AppHeader';
 import { Routes } from './routes';
 
 import './styles/variables.scss';
@@ -10,7 +10,7 @@ import './styles/app-styles.scoped.scss';
 export function App() {
   return (
     <BrowserRouter>
-      <Header />
+      <AppHeader />
 
       <main>
         <Routes />
