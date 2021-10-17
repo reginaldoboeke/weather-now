@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Header } from '../../components/Header';
 import { WeatherCard } from '../../components/WeatherCard';
 
@@ -9,10 +10,13 @@ export function Home() {
       <Header />
       <main>
         <section>
-          <WeatherCard title="Nuuk, GL" location="Nuuk" color="text-blue"/>
-          <WeatherCard title="Urubici, BR" location="Urubici" color="text-orange"/>
-          <WeatherCard title="Nairobi, KE" location="Nairobi" color="text-red"/>
+          <WeatherCard title="Nuuk, GL" locale="Nuuk" />
+          <WeatherCard title="Urubici, BR" locale="Urubici" />
+          <WeatherCard title="Nairobi, KE" locale="Nairobi" />
         </section>
+        <Link to="/dashboard">
+          Dashboard
+        </Link>
       </main>
     </>
   );

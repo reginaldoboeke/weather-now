@@ -52,8 +52,16 @@ div.card {
     height: 160px;
 
     h2 {
-      font-size: 6rem;
+      display: flex;
+      align-items: flex-start;
+
+      font-size: 5.5rem;
       font-weight: 500;
+
+      span.symbol {
+        font-size: 3rem;
+        padding-top: 0.65rem;
+      }
     }
   }
 
@@ -88,14 +96,13 @@ div.card {
         span {
           color: var(--light-gray);
           font-weight: 300;
-          font-size: 0.9rem;
+          font-size: 0.8rem;
           margin-bottom: 4px;
         }
 
         strong {
           color: var(--dark-gray);
           font-weight: 500;
-          font-size: 1.1rem;
         }
       }
     }
@@ -108,7 +115,7 @@ div.card {
 }
 
 div.card:hover {
-  transform: scaleY(1.1);
+  transform: scale(1.05);
 }
 
 .text-blue { color: var(--blue) }

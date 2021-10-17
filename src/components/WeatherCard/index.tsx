@@ -1,20 +1,20 @@
 import { useState } from 'react';
 
-import loaderImg from '../../assets/images/loader.svg';
+import { useWeather } from '../../hooks/useWeather';
 import { Button } from '../Button';
+
+import loaderImg from '../../assets/images/loader.svg';
 
 import './styles.scoped.scss';
 
 interface WeatherCardProps {
   title: string;
-  location: string;
-  color: string; // TODO: remove this prop;
+  locale: string;
 }
 
-export function WeatherCard({ title, color }: WeatherCardProps) {
+export function WeatherCard({ locale, title }: WeatherCardProps) {
   const [showDetails, setShowDetails] = useState(false);
-  const isLoading = false;
-  const isError = false;
+  const { data: weather, isLoading, isError, retry } = useWeather({ locale, cacheTimeInMinutes: 0.5 });
 
   function handleShowDetails() {
     if (!isLoading && !isError) {
@@ -45,7 +45,7 @@ export function WeatherCard({ title, color }: WeatherCardProps) {
       {isError && (
         <div className="error">
           <span className="text-red">Something went wrong</span>
-          <Button onClick={() => {}}>
+          <Button onClick={retry}>
             Try Again
           </Button>
         </div>
@@ -54,7 +54,10 @@ export function WeatherCard({ title, color }: WeatherCardProps) {
       {!isLoading && !isError && (
         <>
           <div className="content">
-            <h2 className={color}>31</h2>
+            <h2 className={`text-${weather.temperatureColor}`}>
+              {weather?.temperature}
+              <span className="symbol">°</span>
+            </h2>
           </div>
 
           <footer>
@@ -63,16 +66,16 @@ export function WeatherCard({ title, color }: WeatherCardProps) {
                 <div className="details">
                   <div>
                     <span>HUMIDITY</span>
-                    <strong>75%</strong>
+                    <strong>{weather?.humidity}%</strong>
                   </div>
                   <div>
                     <span>PRESSURE</span>
-                    <strong>892hPa</strong>
+                    <strong>{weather?.pressure}hPa</strong>
                   </div>
                 </div>
               )
             }
-            <small>Updated at 02:44:32 PM</small>
+            <small>Updated at {weather?.updatedAt}</small>
           </footer>
         </>
       )}
