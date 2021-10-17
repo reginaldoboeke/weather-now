@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { AllHTMLAttributes, useEffect, useState } from 'react';
 
 import { useWeather } from '../../hooks/useWeather';
 import { Button } from '../Button';
@@ -7,31 +7,23 @@ import loaderImg from '../../assets/images/loader.svg';
 
 import './styles.scoped.scss';
 
-interface WeatherCardProps {
+interface WeatherCardProps extends AllHTMLAttributes<HTMLDivElement> {
   title: string;
   locale: string;
+  isActive: boolean;
 }
 
-export function WeatherCard({ locale, title }: WeatherCardProps) {
-  const [showDetails, setShowDetails] = useState(false);
+export function WeatherCard({ locale, title, isActive, ...rest }: WeatherCardProps) {
+  const [showDetails, setShowDetails] = useState(isActive);
+  // TODO: set default time to 10 minutes
   const { data: weather, isLoading, isError, retry } = useWeather({ locale, cacheTimeInMinutes: 0.5 });
 
-  function handleShowDetails() {
-    if (!isLoading && !isError) {
-      setShowDetails(true);
-    }
-  }
-
-  function handleHideDetails() {
-    setShowDetails(false);
-  }
+  useEffect(() => {
+    setShowDetails(isActive && !isLoading && !isError);
+  }, [isActive, isLoading, isError]);
 
   return (
-    <div
-      className="card"
-      onMouseEnter={handleShowDetails}
-      onMouseLeave={handleHideDetails}
-    >
+    <div {...rest} className="card">
       <header>
         <h1>{title}</h1>
       </header>
