@@ -1,46 +1,82 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<h1 align="center">
+  Weather Now
+</h1>
 
-In the project directory, you can run:
+<h3 align="center">
+  Weather Now é uma aplicação com intuito de exibir as condições climáticas de três cidades: Nuuk/GL, Urubici/BR e Nairobi/KE
+</h3>
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 💻 Detalhes da aplicação
+Weather Now exibe as condições climáticas usando a API [OpenWeather](https://openweathermap.org/), com as seguintes características:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Temperatura é exibida em graus Celsius;
+- Umidade é exibida em percentual;
+- Pressão é exibida em hectoPascal (hPa);
+- As temperaturas são exibidas em cores diferentes:
+  - Igual ou abaixo de 5 graus, são exibidas em azul;
+  - Acima de 5 graus e igual ou abaixo de 25 graus, são exibidas em laranja;
+  - Acima de 25 graus, são exibidas em vermelho.
+- As condições climáticas são guardadas em cache no front-end por 10 minutos;
+- A aplicação atualiza as condições climáticas automaticamente a cada 10 minutos.
 
-### `yarn test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Como executar o projeto
 
-### `yarn build`
+### Pré-requisitos
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+Além disto é bom ter um editor para trabalhar com o código, como [VSCode](https://code.visualstudio.com/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### 🎲 Rodando a aplicação
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
 
-### `yarn eject`
+# Clone o repositório
+$ git clone git@github.com:reginaldoboeke/weather-now.git
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Acesse a pasta do projeto no terminal
+$ cd weather-now
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Instale as dependências
+$ yarn install
+# ou
+$ npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Execute a aplicação
+$ yarn start
+# ou 
+$ npm start
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# A aplicação será aberta na porta:3000 - acesse http://localhost:3000
+```
 
-## Learn More
+#### 🎲 Rodando os testes
+```bash
+# Na pasta raíz do projeto, execute
+$ yarn test
+# ou
+$ npm run test
+```
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🛠 Principais tecnologias
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+-   **[React](https://reactjs.org/)**
+-   **[TypeScript](https://www.typescriptlang.org/)**
+-   **[React Router Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)**
+-   **[Axios](https://github.com/axios/axios)**
+-   **[Sass](https://github.com/sass/dart-sass)**
+-   **[Craco](https://github.com/gsoft-inc/craco)**
+-   **[Jest](https://jestjs.io/)** (para testes)
+
+> Veja o arquivo  [package.json](https://github.com/reginaldoboeke/weather-now/blob/main/package.json)
+
+---
+
+## O que melhorar?
+Os componentes de UI poderiam ter sido desenvolvidos em um projeto separado usando Stencil.js por exemplo, onde seriam exportados como WebComponents, sendo possível usa-los com qualquer *framework* de front-end, ou até mesmo com *Vanilla Js*.
