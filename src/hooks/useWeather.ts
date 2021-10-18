@@ -94,7 +94,7 @@ export function useWeather({ locale, cacheTimeInMinutes = 10 }: UseWeatherProps)
   return {
     isLoading,
     isError,
-    data,
+    weather: data,
     retry: loadWeather,
   }
 }

@@ -16,7 +16,7 @@ interface WeatherCardProps extends AllHTMLAttributes<HTMLDivElement> {
 export function WeatherCard({ locale, title, isActive, ...rest }: WeatherCardProps) {
   const [showDetails, setShowDetails] = useState(isActive);
   // TODO: set default time to 10 minutes
-  const { data: weather, isLoading, isError, retry } = useWeather({ locale, cacheTimeInMinutes: 0.5 });
+  const { weather, isLoading, isError, retry } = useWeather({ locale, cacheTimeInMinutes: 0.5 });
 
   useEffect(() => {
     setShowDetails(isActive && !isLoading && !isError);
