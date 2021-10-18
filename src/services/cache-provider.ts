@@ -8,17 +8,19 @@ interface SaveItemProps<T = any> {
 type CacheItem<T = any> = Omit<SaveItemProps<T>, 'key'>;
 
 interface CacheProvider {
-  save: (props: SaveItemProps) => void;
+  save: (props: SaveItemProps) => boolean;
   get:<T> (key: string) => CacheItem<T> | null;
   getIfValid:<T> (key: string, dateToCompare?: Date) => CacheItem<T> | null;
 }
 
-const save = ({ key, expiresIn, data }: SaveItemProps): void => {
+const save = ({ key, expiresIn, data }: SaveItemProps) => {
   try {
     const valueToStore = JSON.stringify({ expiresIn, data });
     localStorage.setItem(`@weathernow:cache.${key}`, valueToStore);
+    return true;
   } catch (error) {
     console.error(error);
+    return false;
   }
 }
 
@@ -32,6 +34,7 @@ const get = (key: string) => {
 
   } catch (error) {
     console.error(error);
+    return null;
   }
 }
 

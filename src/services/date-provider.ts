@@ -9,8 +9,7 @@ function addMinutes(minutes: number, date = new Date()) {
 
 function diffMinutes(date: Date, dateToCompare = new Date()) {
   const difference = (date.getTime() - dateToCompare.getTime()) / 1000;
-  const res =  difference / 60;
-  return res;
+  return difference / 60;
 }
 
 export const dateProvider: DateProvider = { addMinutes, diffMinutes };
