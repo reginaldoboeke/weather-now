@@ -5,7 +5,7 @@ import './styles.scoped.scss';
 export function AppHeader() {
   return (
     <header>
-      <img src={logoImg} alt="WeatherNow" />
+      <img src={logoImg} alt="WeatherNow Logo" />
     </header>
   );
 }

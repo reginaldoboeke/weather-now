@@ -19,7 +19,6 @@ const save = ({ key, expiresIn, data }: SaveItemProps) => {
     localStorage.setItem(`@weathernow:cache.${key}`, valueToStore);
     return true;
   } catch (error) {
-    console.error(error);
     return false;
   }
 }
@@ -33,7 +32,6 @@ const get = (key: string) => {
     return JSON.parse(data);
 
   } catch (error) {
-    console.error(error);
     return null;
   }
 }
@@ -55,7 +53,6 @@ const getIfValid = (key: string, dateToCompare = new Date()) => {
     return null;
 
   } catch (error) {
-    console.error(error);
     return null;
   }
 }
