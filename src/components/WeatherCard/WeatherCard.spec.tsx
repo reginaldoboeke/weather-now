@@ -3,7 +3,7 @@ import { mocked } from 'ts-jest/utils';
 import { WeatherCard } from '.';
 import { useWeather } from '../../hooks/useWeather';
 
-jest.mock('../../hooks/UseWeather');
+jest.mock('../../hooks/useWeather');
 
 describe('WeatherCard', () => {
   it('should renders correct', () => {
